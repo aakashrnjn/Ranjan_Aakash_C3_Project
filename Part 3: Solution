@@ -1,0 +1,43 @@
+class Restaurant {
+    // ... (existing code here)
+
+    public int calculateOrderValue(List<Item> orderItems) {
+        int totalValue = 0;
+        for (Item item : orderItems) {
+            totalValue += item.getPrice();
+        }
+        return totalValue;
+    }
+
+    // ... (rest of the code here)
+}
+
+
+
+
+
+
+
+
+
+class RestaurantTest {
+    public static void main(String[] args) {
+        // Create a restaurant
+        Restaurant restaurant = new Restaurant("Sample Restaurant", "Sample Location",
+                LocalTime.of(9, 0), LocalTime.of(22, 0));
+
+        // Add items to the menu
+        restaurant.addToMenu("Item 1", 10);
+        restaurant.addToMenu("Item 2", 15);
+        restaurant.addToMenu("Item 3", 8);
+
+        // Create a list of items for an order
+        List<Item> orderItems = new ArrayList<>();
+        orderItems.add(new Item("Item 1", 10));
+        orderItems.add(new Item("Item 3", 8));
+
+        // Test case 6: Calculate order value
+        int orderValue = restaurant.calculateOrderValue(orderItems);
+        System.out.println("Order value: $" + orderValue);
+    }
+}
